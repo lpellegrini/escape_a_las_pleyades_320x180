@@ -43,7 +43,7 @@
       <PlaySoundOnScore>0</PlaySoundOnScore>
       <CrossfadeMusic>No</CrossfadeMusic>
       <DialogOptionsGUI>5</DialogOptionsGUI>
-      <DialogOptionsGap>0</DialogOptionsGap>
+      <DialogOptionsGap>1</DialogOptionsGap>
       <DialogOptionsBullet>0</DialogOptionsBullet>
       <SkipSpeech>MouseOrKeyboardOrTimer</SkipSpeech>
       <SpeechStyle>Lucasarts</SpeechStyle>
@@ -56,7 +56,7 @@
       <TextWindowGUI>0</TextWindowGUI>
       <AlwaysDisplayTextAsSpeech>False</AlwaysDisplayTextAsSpeech>
       <FontsForHiRes>False</FontsForHiRes>
-      <AntiAliasFonts>True</AntiAliasFonts>
+      <AntiAliasFonts>False</AntiAliasFonts>
       <ThoughtGUI>0</ThoughtGUI>
       <BackwardsText>False</BackwardsText>
       <MaximumScore>0</MaximumScore>
@@ -781,6 +781,10 @@
             <Number>8</Number>
             <Description xml:space="preserve">Segundo Piso</Description>
           </UnloadedRoom>
+          <UnloadedRoom>
+            <Number>9</Number>
+            <Description>Depto</Description>
+          </UnloadedRoom>
         </UnloadedRooms>
       </UnloadedRoomFolder>
     </Rooms>
@@ -1272,18 +1276,18 @@
           </GUIMain>
           <GUIMain>
             <NormalGUI>
-              <OnClick />
-              <Height>240</Height>
+              <OnClick>gOverhotspot2_OnClick</OnClick>
+              <Height>60</Height>
               <Width>320</Width>
               <Left>0</Left>
               <Top>0</Top>
               <Clickable>False</Clickable>
-              <Visibility>Normal</Visibility>
+              <Visibility>NormalButInitiallyOff</Visibility>
               <PopupYPos>13</PopupYPos>
               <ZOrder>3</ZOrder>
               <BorderColor>0</BorderColor>
-              <Transparency>0</Transparency>
-              <BackgroundColor>0</BackgroundColor>
+              <Transparency>50</Transparency>
+              <BackgroundColor>100</BackgroundColor>
               <BackgroundImage>0</BackgroundImage>
               <ID>5</ID>
               <Name>gOverhotspot2</Name>
@@ -1852,7 +1856,7 @@
             <Interactions>
               <Event Index="0" />
               <Event Index="1" />
-              <Event Index="2" />
+              <Event Index="2">cProductora_Talk</Event>
               <Event Index="3" />
               <Event Index="4" />
               <Event Index="5" />
@@ -2497,10 +2501,48 @@ Ego: Esteee… no tengo idea de quién es….
 Productora: ¿Y no te gustaría aplaudirlo?
 return
 @1
+Productora: ¿En serio? Mirá que te puedo ofrecer 300 pesos por aplaudirlo.
+option-off 1
+option-off 2
+option-off 3
+option-on 4
+option-on 5
 return
 @2
+Productora: ¿En serio? Mirá que te puedo ofrecer 300 pesos por aplaudirlo.
+option-off 1
+option-off 2
+option-off 3
+option-on 4
+option-on 5
 return
 @3
+Productora: ¿En serio? Mirá que te puedo ofrecer 300 pesos por aplaudirlo.
+option-off 1
+option-off 2
+option-off 3
+option-on 4
+option-on 5
+return
+@4
+Productora: Bien: acá tenés tu dinero.
+stop
+@5
+option-off 1
+option-off 2
+option-off 3
+option-off 4
+option-off 5
+option-on 6
+stop
+@6
+option-off 1
+option-off 2
+option-off 3
+option-on 4
+option-on 5
+option-off 6
+
 return
 ]]></Script>
             <DialogOptions>
@@ -2522,6 +2564,24 @@ return
                 <Show>True</Show>
                 <Say>True</Say>
               </DialogOption>
+              <DialogOption>
+                <ID>4</ID>
+                <Text xml:space="preserve">Bueno, esos 300 pesos me hacen ver a tu candidato con otros ojos.</Text>
+                <Show>False</Show>
+                <Say>True</Say>
+              </DialogOption>
+              <DialogOption>
+                <ID>5</ID>
+                <Text xml:space="preserve">Mejor no.</Text>
+                <Show>False</Show>
+                <Say>True</Say>
+              </DialogOption>
+              <DialogOption>
+                <ID>6</ID>
+                <Text xml:space="preserve">¿Dijiste 300 pesos?</Text>
+                <Show>False</Show>
+                <Say>True</Say>
+              </DialogOption>
             </DialogOptions>
           </Dialog>
         </Dialogs>
@@ -2533,19 +2593,19 @@ return
         <HotspotX>0</HotspotX>
         <HotspotY>0</HotspotY>
         <StandardMode>True</StandardMode>
-        <Image>2061</Image>
+        <Image>258</Image>
         <View>2</View>
-        <Animate>True</Animate>
-        <AnimateOnlyOnHotspots>True</AnimateOnlyOnHotspots>
+        <Animate>False</Animate>
+        <AnimateOnlyOnHotspots>False</AnimateOnlyOnHotspots>
         <AnimateOnlyWhenMoving>False</AnimateOnlyWhenMoving>
         <Name xml:space="preserve">Walk to</Name>
       </MouseCursor>
       <MouseCursor>
         <ID>1</ID>
-        <HotspotX>8</HotspotX>
-        <HotspotY>8</HotspotY>
+        <HotspotX>0</HotspotX>
+        <HotspotY>0</HotspotY>
         <StandardMode>True</StandardMode>
-        <Image>2056</Image>
+        <Image>260</Image>
         <View>0</View>
         <Animate>False</Animate>
         <AnimateOnlyOnHotspots>False</AnimateOnlyOnHotspots>
@@ -2554,10 +2614,10 @@ return
       </MouseCursor>
       <MouseCursor>
         <ID>2</ID>
-        <HotspotX>8</HotspotX>
-        <HotspotY>8</HotspotY>
+        <HotspotX>0</HotspotX>
+        <HotspotY>0</HotspotY>
         <StandardMode>True</StandardMode>
-        <Image>2054</Image>
+        <Image>258</Image>
         <View>0</View>
         <Animate>False</Animate>
         <AnimateOnlyOnHotspots>False</AnimateOnlyOnHotspots>
@@ -2566,10 +2626,10 @@ return
       </MouseCursor>
       <MouseCursor>
         <ID>3</ID>
-        <HotspotX>16</HotspotX>
-        <HotspotY>16</HotspotY>
+        <HotspotX>0</HotspotX>
+        <HotspotY>0</HotspotY>
         <StandardMode>True</StandardMode>
-        <Image>2058</Image>
+        <Image>259</Image>
         <View>0</View>
         <Animate>False</Animate>
         <AnimateOnlyOnHotspots>False</AnimateOnlyOnHotspots>
@@ -2602,10 +2662,10 @@ return
       </MouseCursor>
       <MouseCursor>
         <ID>6</ID>
-        <HotspotX>8</HotspotX>
-        <HotspotY>8</HotspotY>
+        <HotspotX>0</HotspotX>
+        <HotspotY>0</HotspotY>
         <StandardMode>False</StandardMode>
-        <Image>2054</Image>
+        <Image>258</Image>
         <View>0</View>
         <Animate>False</Animate>
         <AnimateOnlyOnHotspots>False</AnimateOnlyOnHotspots>
@@ -2629,7 +2689,7 @@ return
         <HotspotX>0</HotspotX>
         <HotspotY>0</HotspotY>
         <StandardMode>False</StandardMode>
-        <Image>2054</Image>
+        <Image>258</Image>
         <View>0</View>
         <Animate>False</Animate>
         <AnimateOnlyOnHotspots>False</AnimateOnlyOnHotspots>
@@ -2641,7 +2701,7 @@ return
         <HotspotX>0</HotspotX>
         <HotspotY>0</HotspotY>
         <StandardMode>False</StandardMode>
-        <Image>2054</Image>
+        <Image>258</Image>
         <View>0</View>
         <Animate>False</Animate>
         <AnimateOnlyOnHotspots>False</AnimateOnlyOnHotspots>
@@ -2656,7 +2716,7 @@ return
         <Name xml:space="preserve">Font 0</Name>
         <OutlineFont>0</OutlineFont>
         <OutlineStyle>None</OutlineStyle>
-        <SourceFilename xml:space="preserve">C:\Users\Pelle\Desktop\amiga4ever pro.ttf</SourceFilename>
+        <SourceFilename>C:\Users\Pelle\Documents\AmigaForeverPro.ttf</SourceFilename>
         <VerticalOffset>0</VerticalOffset>
         <LineSpacing>8</LineSpacing>
       </Font>
@@ -4601,6 +4661,21 @@ return
               <Sprite Slot="206" Width="58" Height="58" ColorDepth="16" Resolution="LowRes" AlphaChannel="False">
                 <Source>
                   <FileName>C:\pleyades\verbcoin2.bmp</FileName>
+                </Source>
+              </Sprite>
+              <Sprite Slot="258" Width="8" Height="8" ColorDepth="16" Resolution="LowRes" AlphaChannel="False">
+                <Source>
+                  <FileName>C:\Users\Pelle\Desktop\pointer.png</FileName>
+                </Source>
+              </Sprite>
+              <Sprite Slot="259" Width="8" Height="8" ColorDepth="16" Resolution="LowRes" AlphaChannel="False">
+                <Source>
+                  <FileName>C:\Users\Pelle\Desktop\Talk.png</FileName>
+                </Source>
+              </Sprite>
+              <Sprite Slot="260" Width="8" Height="8" ColorDepth="16" Resolution="LowRes" AlphaChannel="False">
+                <Source>
+                  <FileName>C:\Users\Pelle\Desktop\look.png</FileName>
                 </Source>
               </Sprite>
             </Sprites>
